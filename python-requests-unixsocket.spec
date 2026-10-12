@@ -3,7 +3,7 @@
 
 Name:		python-requests-unixsocket
 Version:	0.4.1
-Release:	2
+Release:	3
 Summary:	Use requests to talk HTTP via a UNIX domain socket
 License:	Apache-2.0
 Group:		Development/Python
@@ -19,6 +19,10 @@ BuildRequires:	python%{pyver}dist(wheel)
 
 %description
 Use requests to talk HTTP via a UNIX domain socket
+
+%build -p
+# The sdist is not a git checkout, so the versioning backend needs the version.
+export SETUPTOOLS_SCM_PRETEND_VERSION=%{version}
 
 %files
 %{py_sitedir}/%{oname}
